@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mr.Luck AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+    @font-face {
+      font-family: "AmericanTypewriter";
+      src: local("American Typewriter"), local("AmericanTypewriter");
+    }
+    </style>
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <span>🧠 History</span>
+            <button id="new-chat">＋</button>
+        </div>
+        <input  type="text" id="search-chat" placeholder="Search chats..." class="search"/>
+        <div class="chat-list" id="chat-list"></div>
+    </aside>
+
+    <!-- MAIN CHAT -->
+    <div class="app">
+        <header class="header">
+             <span class="logo">
+                 <span class="logo-main">Mr.</span><span class="logo-accent">Luck</span>
+             </span>
+
+             <div class="header-actions">
+                <button id="share-btn">Share</button>
+                <button id="delete-chat">Delete</button>
+             </div>
+        </header>
+
+
+        <main class="chat-area" id="chat-box"></main>
+
+        <div class="typing" id="typing">Mr.Luck is thinking…</div>
+
+        <footer class="input-area">
+            <textarea id="user-input" placeholder="Message Mr.Luck..."></textarea>
+            <button id="send-btn">Send</button>
+        </footer>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

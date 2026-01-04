@@ -1,0 +1,359 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: #0d0d0d;
+    color: #ffffff;
+}
+
+/* Layout */
+.layout {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background: #111111;
+    border-right: 1px solid #222;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.sidebar-header button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.chat-list {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.chat-item {
+    padding: 12px 14px;
+    cursor: pointer;
+    border-bottom: 1px solid #222;
+    color: #ddd;
+}
+
+.chat-item:hover,
+.chat-item.active {
+    background: #1a1a1a;
+    color: white;
+}
+
+/* Main app */
+.app {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #111111;
+    border-bottom: 1px solid #222;
+    font-size: 18px;
+}
+
+.header button {
+    background: #222;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.header button:hover {
+    background: #333;
+}
+
+.chat-area {
+    flex: 1;
+    padding: 20px 24px;
+    overflow-y: auto;
+    background: #0d0d0d;
+}
+
+/* Messages */
+
+/* Typing */
+.typing {
+    padding: 6px 20px;
+    font-style: italic;
+    color: #aaa;
+    display: none;
+}
+
+/* Input */
+.input-area {
+    display: flex;
+    padding: 14px;
+    gap: 12px;
+    border-top: 1px solid #222;
+    background: #111111;
+}
+
+textarea {
+    flex: 1;
+    resize: none;
+    background: #0d0d0d;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 10px;
+    color: white;
+    outline: none;
+}
+
+button {
+    background: #ffffff;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    padding: 0 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* LOGO */
+.logo {
+    font-family: "AmericanTypewriter", "Bradley Hand", serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+.logo-main {
+    color: #ffffff;
+}
+
+.logo-accent {
+    color: #4fd1c5; /* Aqua accent */
+}
+
+/* SEARCH */
+.search {
+    margin: 10px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #222;
+    background: #0d0d0d;
+    color: white;
+}
+/* USER MESSAGE (CHATGPT STYLE) */
+
+.message.bot {
+    background: #1a1a1a;
+    color: #ffffff;
+    margin-right: auto;
+}
+
+
+
+/* INPUT BOX WITH AQUA MOTION SHADOW */
+textarea {
+    transition: box-shadow 0.3s ease;
+}
+
+textarea:focus {
+    box-shadow: 0 0 12px rgba(79, 209, 197, 0.7);
+    border-color: #4fd1c5;
+}
+.message {
+    max-width: 70%;
+    width: fit-content;
+
+    padding: 10px 14px;
+    margin-bottom: 12px;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+    line-height: 1.5;
+
+    white-space: normal;
+    overflow-wrap: anywhere;
+
+    display: block;
+}
+
+/* Remove extra paragraph spacing from markdown */
+.message p + p {
+    margin-top: 6px;   /* small gap between paragraphs */
+}
+
+.message pre {
+    background: #111;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+
+    white-space: pre;
+    overflow-x: auto;
+    font-size: 14px;
+}
+
+.message code {
+    font-family: Consolas, Monaco, monospace;
+}
+
+/* ================= MARKDOWN SPACING (CHATGPT-LIKE) ================= */
+
+/* Paragraph spacing */
+.message p {
+    margin: 6px 0;
+}
+
+/* Headings */
+.message h1,
+.message h2,
+.message h3 {
+    margin: 14px 0 8px;
+    line-height: 1.4;
+}
+
+/* Horizontal rule */
+.message hr {
+    border: none;
+    height: 1px;
+    background: #2a2a2a;
+
+    margin: 18px 0;   /* 👈 THIS IS WHAT YOU ASKED */
+}
+
+/* Lists */
+.message ul,
+.message ol {
+    margin: 8px 0 8px 18px;
+}
+
+.message li {
+    margin: 4px 0;
+}
+
+/* ================= USER QUERY FIX ================= */
+
+/* Force grey background for user messages */
+.message.user {
+    background-color: #e5e7eb !important; /* ChatGPT grey */
+    color: #000 !important;
+    margin-left: auto;
+    box-shadow: 0 0 10px rgba(79, 209, 197, 0.45); /* aqua glow */
+}
+
+/* Remove white background from markdown <p> inside user bubble */
+.message.user p {
+    background: transparent !important;
+}
+
+/* ================= MESSAGE ANIMATION ================= */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message {
+    animation: fadeInUp 0.25s ease-out;
+}
+
+/* ================= FORCE USER MESSAGE STYLING ================= */
+
+#chat-box .message.user {
+    background-color: #e5e7eb !important; /* ChatGPT grey */
+    color: #000 !important;
+    margin-left: auto;
+    margin-right: 0;
+    box-shadow: 0 0 12px rgba(79, 209, 197, 0.6); /* aqua blue shadow */
+    border-radius: 12px;
+    max-width: 70%;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+}
+
+/* Ensure text inside user messages is black */
+#chat-box .message.user,
+#chat-box .message.user * {
+    color: #000 !important;
+}
+
+/* Remove any default backgrounds from markdown elements */
+#chat-box .message.user p,
+#chat-box .message.user div,
+#chat-box .message.user span,
+#chat-box .message.user pre,
+#chat-box .message.user code {
+    background: transparent !important;
+    color: #000 !important;
+}
+
+/* Style code blocks inside user messages differently */
+#chat-box .message.user pre {
+    background: rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* Bot messages styling (for contrast) */
+#chat-box .message.bot {
+    background: #1a1a1a;
+    color: #ffffff;
+    margin-right: auto;
+    margin-left: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    max-width: 70%;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+}
+/* Message content wrapper */
+.message-content {
+    background: transparent !important;
+}
+
+/* Ensure user message content inherits styles */
+.message.user .message-content,
+.message.user .message-content * {
+    background: transparent !important;
+    color: inherit !important;
+}
+
+/* Make sure code blocks in user messages have proper contrast */
+.message.user pre,
+.message.user code {
+    background: rgba(0, 0, 0, 0.1) !important;
+    color: #000 !important;
+}
+
+/* Bot message code blocks */
+.message.bot pre,
+.message.bot code {
+    background: #111 !important;
+    color: #fff !important;
+}
